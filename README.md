@@ -1,2 +1,2 @@
-# sto-parent
+# stock-items-management
 Stock items management
