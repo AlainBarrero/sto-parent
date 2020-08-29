@@ -15,7 +15,47 @@
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
+		<version.springframework>5.2.8.RELEASE</version.springframework>
+		<version.springboot>2.3.3.RELEASE</version.springboot>
+		<version.modelmapper>2.3.8</version.modelmapper>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- Dependencies between project artifacts -->
+			<dependency>
+				<groupId>com.stock.user</groupId>
+				<artifactId>stock-user-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<!-- Spring Framework -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${version.springframework}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+				<version>${version.springboot}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-configuration-processor</artifactId>
+				<version>${version.springboot}</version>
+			</dependency>
+
+			<!-- Model mapper -->
+			<dependency>
+				<groupId>org.modelmapper</groupId>
+				<artifactId>modelmapper</artifactId>
+				<version>${version.modelmapper}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
