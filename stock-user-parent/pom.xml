@@ -3,34 +3,31 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.stock.user</groupId>
 	<artifactId>stock-user-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
 	<packaging>pom</packaging>
-
+	<modules>
+		<module>stock-user-api</module>
+		<module>stock-user-impl</module>
+		<module>stock-user-service</module>
+	</modules>
 	<properties>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<version.modelmapper>2.3.8</version.modelmapper>
+		<version.springboot>2.3.3.RELEASE</version.springboot>
+		<version.javax>2.1.1</version.javax>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<version.springframework>5.2.8.RELEASE</version.springframework>
-		<version.springboot>2.3.3.RELEASE</version.springboot>
-		<version.modelmapper>2.3.8</version.modelmapper>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-
 	<dependencyManagement>
 		<dependencies>
-
-			<!-- Dependencies between project artifacts -->
 			<dependency>
 				<groupId>com.stock.user</groupId>
 				<artifactId>stock-user-api</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-
-			<!-- Spring Framework -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
@@ -46,21 +43,21 @@
 				<artifactId>spring-boot-configuration-processor</artifactId>
 				<version>${version.springboot}</version>
 			</dependency>
-
-			<!-- Model mapper -->
 			<dependency>
 				<groupId>org.modelmapper</groupId>
 				<artifactId>modelmapper</artifactId>
 				<version>${version.modelmapper}</version>
 			</dependency>
-
+			<dependency>
+				<groupId>javax.ws.rs</groupId>
+				<artifactId>javax.ws.rs-api</artifactId>
+				<version>${version.javax}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.6.1</version>
 				<configuration>
@@ -70,12 +67,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<modules>
-		<module>stock-user-api</module>
-		<module>stock-user-impl</module>
-		<module>stock-user-security</module>
-		<module>stock-user-service</module>
-	</modules>
-
 </project>

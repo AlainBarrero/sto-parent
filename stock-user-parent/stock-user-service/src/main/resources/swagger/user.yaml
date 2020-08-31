@@ -1,0 +1,55 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Stock users api
+  description: Stock items users api
+schemes:
+  - https
+host: localhost
+basePath: /api
+tags:
+  - name: users
+    description: Stock users api
+paths:
+  /user:
+    post:
+      tags:
+        - user
+      summary: Login
+      consumes:
+      - 'application/json'
+      produces:
+      - 'application/json'
+      parameters:
+        - in: body
+          name: credentials
+          schema:
+            $ref: '#/definitions/Credentials'
+      responses:
+        '200':
+          description: Successful authentication
+          schema:
+            $ref: '#/definitions/LoginData'
+        '403':
+          description: Gone
+definitions:
+  Credentials:
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+  User:
+    properties:
+      id:
+        type: integer
+      code:
+        type: string
+      name:
+        type: string
+  LoginData:
+    properties:
+      username:
+        type: string
+      user:
+        $ref: '#/definitions/User'
